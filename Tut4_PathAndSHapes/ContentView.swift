@@ -66,10 +66,37 @@ struct DomeView: View {
 
 struct ArcsAndPieCharts: View {
     var body: some View{
-        Path(){ path in
-            path.move(to: CGPoint(x: 200, y: 200))
-            path.addArc(center: .init(x: 200, y: 200), radius: 100, startAngle: .degrees(0), endAngle: .degrees(90), clockwise: true)
+        ZStack {
+            Path(){ path in
+                path.move(to: CGPoint(x: 200, y: 200))
+                path.addArc(center: .init(x: 200, y: 200), radius: 100, startAngle: .degrees(0), endAngle: .degrees(90), clockwise: true)
+            }
+            .fill(.green)
+            
+            Path(){ path in
+                path.move(to: CGPoint(x: 200, y: 200))
+                path.addArc(center: .init(x: 200, y: 200), radius: 100, startAngle: .degrees(190), endAngle: .degrees(90), clockwise: true)
+            }
+            .fill(.yellow)
+            
+            Path(){ path in
+                path.move(to: CGPoint(x: 200, y: 200))
+                path.addArc(center: .init(x: 200, y: 200), radius: 100, startAngle: .degrees(190), endAngle: .degrees(110), clockwise: true)
+            }
+            .fill(.red)
+            
+            Path(){ path in
+                path.move(to: CGPoint(x: 200, y: 200))
+                path.addArc(center: .init(x: 200, y: 200), radius: 100, startAngle: .degrees(90), endAngle: .degrees(0), clockwise: true)
+            }
+            .fill(.purple)
+            .offset(x: 15, y: 10)
+            .overlay(
+                Text("25%")
+                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                    .foregroundColor(.white)
+                    .offset(x:60, y: 60)
+            )
         }
-        .fill(.green)
     }
 }
